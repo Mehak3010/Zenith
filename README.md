@@ -1,4 +1,4 @@
-# Zenith Real Estate Price Predictor
+# Zenith- A Real Estate Price Predictor
 
 ## Overview
 
