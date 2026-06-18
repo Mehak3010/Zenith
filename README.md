@@ -1,43 +1,39 @@
-# Zenith- A Real Estate Price Predictor
+# Zenith - A Real Estate Price Predictor
 
 ## Overview
 
-Zenith Real Estate Price Predictor is a machine learning project focused on predicting residential property prices using housing characteristics and socio-economic indicators. The project applies data preprocessing, exploratory data analysis, feature engineering, model training, hyperparameter tuning, and model evaluation techniques to develop an accurate housing price prediction system.
+Zenith Real Estate Price Predictor is an end-to-end machine learning project that predicts residential property prices using the Ames Housing Dataset. The project leverages exploratory data analysis, feature engineering, data preprocessing, model comparison, and hyperparameter tuning to build an accurate and interpretable housing valuation system.
 
-The objective is to help buyers, sellers, investors, and real estate agencies make informed decisions by estimating property values based on key housing attributes.
+The objective is to assist buyers, sellers, investors, and real estate agencies in estimating fair market prices and understanding the factors that influence property values.
 
 ---
 
 ## Dataset Information
 
-The project uses the Boston Housing Dataset, a widely used regression dataset containing information collected by the U.S. Census Service concerning housing in Boston suburbs.
+This project uses the Ames Housing Dataset, a comprehensive real-world housing dataset containing detailed information about residential properties sold in Ames, Iowa.
+
+Unlike traditional housing datasets, Ames Housing includes a rich set of structural, neighborhood, quality, and property-related features, making it ideal for advanced regression modeling and predictive analytics.
 
 ### Dataset Summary
 
-* Records: 506
-* Features: 13 Predictor Variables
-* Target Variable: MEDV (Median Value of Owner-Occupied Homes)
-* Missing Values: None
-* Problem Type: Regression
+* Records: 2,930 Residential Properties
+* Features: 80+ Housing Attributes
+* Target Variable: SalePrice
+* Problem Type: Supervised Regression
+* Missing Values: Present in multiple features and handled during preprocessing
 
-### Feature Description
+### Target Variable
 
-| Feature | Description                                                         |
-| ------- | ------------------------------------------------------------------- |
-| CRIM    | Per capita crime rate by town                                       |
-| ZN      | Proportion of residential land zoned for lots over 25,000 sq.ft.    |
-| INDUS   | Proportion of non-retail business acres per town                    |
-| CHAS    | Charles River dummy variable (1 if tract bounds river, 0 otherwise) |
-| NOX     | Nitric oxide concentration (parts per 10 million)                   |
-| RM      | Average number of rooms per dwelling                                |
-| AGE     | Proportion of owner-occupied units built prior to 1940              |
-| DIS     | Weighted distances to five Boston employment centres                |
-| RAD     | Index of accessibility to radial highways                           |
-| TAX     | Full-value property tax rate per $10,000                            |
-| PTRATIO | Pupil-teacher ratio by town                                         |
-| B       | Population proportion index                                         |
-| LSTAT   | Percentage of lower status population                               |
-| MEDV    | Median value of owner-occupied homes in $1000s (Target Variable)    |
+**SalePrice** – Final sale price of the property in US Dollars.
+
+### Key Feature Categories
+
+* Property Characteristics (Lot Area, Overall Quality, Overall Condition)
+* Living Space Features (Above Ground Living Area, Basement Area)
+* Garage Information (Garage Area, Garage Capacity)
+* Building Age and Remodeling Information
+* Neighborhood and Location Features
+* Exterior and Interior Quality Indicators
 
 ---
 
@@ -45,14 +41,14 @@ The project uses the Boston Housing Dataset, a widely used regression dataset co
 
 1. Data Collection and Understanding
 2. Exploratory Data Analysis (EDA)
-3. Data Cleaning and Validation
+3. Data Cleaning and Missing Value Handling
 4. Feature Engineering
 5. Data Preprocessing
-6. Model Training
+6. Model Training and Comparison
 7. Hyperparameter Tuning
 8. Model Evaluation
 9. Feature Importance Analysis
-10. Model Serialization and Deployment Preparation
+10. Model Serialization
 
 ---
 
@@ -86,20 +82,60 @@ Model performance was compared using:
 
 ---
 
+## Feature Engineering
+
+Custom features were created to improve predictive performance, including:
+
+* House Age
+* Remodel Age
+* Total Bathrooms
+* Total Living Area
+* Combined Property Quality Indicators
+
+Feature engineering helped capture additional relationships between housing characteristics and sale prices.
+
+---
+
 ## Key Insights
 
-* Average number of rooms (RM) has a strong positive relationship with house prices.
-* Lower status population percentage (LSTAT) negatively impacts property value.
-* Crime rate and taxation levels influence housing prices.
-* Ensemble-based models outperform traditional regression approaches.
-* XGBoost achieved the best predictive performance among the evaluated models.
+* Overall Quality is one of the strongest predictors of housing prices.
+* Living Area and Basement Size significantly impact property valuation.
+* Garage Capacity and Garage Area positively influence sale prices.
+* Recently remodeled properties generally command higher market values.
+* Ensemble-based models outperformed traditional regression approaches.
+* XGBoost achieved the best predictive performance among all evaluated models.
 
 ---
 
 ## Future Improvements
 
-* Integrate real-time housing market data.
 * Deploy the model using Streamlit.
-* Implement Explainable AI using SHAP.
-* Add geospatial and neighborhood-based features.
+* Add Explainable AI using SHAP.
+* Incorporate geospatial and neighborhood-level analytics.
 * Build a REST API for real-time predictions.
+* Integrate current housing market trends and economic indicators.
+
+---
+
+## Repository Structure
+
+```text
+Zenith-Real-Estate-Price-Predictor/
+│
+├── data/
+│   └── AmesHousing.csv
+│
+├── notebooks/
+│   └── Zenith_Real_Estate_Predictor.ipynb
+│
+├── models/
+│   └── zenith_price_predictor.pkl
+│
+├── README.md
+│
+└── requirements.txt
+```
+
+## Author
+
+**Mehak Arora**
