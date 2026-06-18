@@ -12,8 +12,6 @@ The objective is to assist buyers, sellers, investors, and real estate agencies 
 
 This project uses the Ames Housing Dataset, a comprehensive real-world housing dataset containing detailed information about residential properties sold in Ames, Iowa.
 
-Unlike traditional housing datasets, Ames Housing includes a rich set of structural, neighborhood, quality, and property-related features, making it ideal for advanced regression modeling and predictive analytics.
-
 ### Dataset Summary
 
 * Records: 2,930 Residential Properties
@@ -131,9 +129,7 @@ Zenith-Real-Estate-Price-Predictor/
 ├── models/
 │   └── zenith_price_predictor.pkl
 │
-├── README.md
-│
-└── requirements.txt
+└── README.md
 ```
 
 ## Author
