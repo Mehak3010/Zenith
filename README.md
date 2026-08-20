@@ -2,7 +2,7 @@
 
 ## Overview
 
-Zenith Real Estate Price Predictor is an end-to-end machine learning project that predicts residential property prices using the Ames Housing Dataset. The project leverages exploratory data analysis, feature engineering, data preprocessing, model comparison, and hyperparameter tuning to build an accurate and interpretable housing valuation system.
+Zenith Real Estate Price Predictor is an end-to-end machine learning project that predicts residential property prices using the Ames Housing Dataset. The project leverages exploratory data analysis, feature engineering, data preprocessing, model comparison, hyperparameter tuning, and SHAP-based explainability to build an accurate and interpretable housing valuation system.
 
 The objective is to assist buyers, sellers, investors, and real estate agencies in estimating fair market prices and understanding the factors that influence property values.
 
@@ -47,6 +47,7 @@ This project uses the Ames Housing Dataset, a comprehensive real-world housing d
 8. Model Evaluation
 9. Feature Importance Analysis
 10. Model Serialization
+11. Model Serialization
 
 ---
 
@@ -59,6 +60,7 @@ This project uses the Ames Housing Dataset, a comprehensive real-world housing d
 * Seaborn
 * Scikit-learn
 * XGBoost
+* SHAP
 * Joblib
 
 ---
@@ -80,6 +82,21 @@ Model performance was compared using:
 
 ---
 
+## Model Performance
+
+| Model             |          MAE |         RMSE |     R² |
+| ----------------- | -----------: | -----------: | -----: |
+| XGBoost           | 14819.559570 | 22893.428227 | 0.9346 |
+| Gradient Boosting | 14870.180768 | 23243.263087 | 0.9326 |
+| Random Forest     | 15883.580478 | 25828.207230 | 0.9167 |
+| Linear Regression | 16121.411931 | 29822.510521 | 0.8890 |
+
+### Best Performing Model
+
+**XGBoost** achieved the best overall performance, with the lowest RMSE and the highest R² score among the evaluated models.
+
+---
+
 ## Feature Engineering
 
 Custom features were created to improve predictive performance, including:
@@ -91,6 +108,17 @@ Custom features were created to improve predictive performance, including:
 * Combined Property Quality Indicators
 
 Feature engineering helped capture additional relationships between housing characteristics and sale prices.
+
+---
+## Model Explainability with SHAP
+
+To make the model's predictions interpretable, SHAP (SHapley Additive exPlanations) was applied to the final tuned XGBoost model:
+
+* **Global explainability** — a SHAP summary plot ranks which features most influence predicted prices across the entire test set, and shows whether high or low values push prices up or down.
+
+* **Global explainability** — a SHAP summary plot ranks which features most influence predicted prices across the entire test set, and shows whether high or low values push prices up or down.
+
+This moves the project beyond a black-box predictor, allowing users to understand why a given valuation was produced.
 
 ---
 
@@ -108,11 +136,10 @@ Feature engineering helped capture additional relationships between housing char
 ## Future Improvements
 
 * Deploy the model using Streamlit.
-* Add Explainable AI using SHAP.
 * Incorporate geospatial and neighborhood-level analytics.
 * Build a REST API for real-time predictions.
 * Integrate current housing market trends and economic indicators.
-
+  
 ---
 
 ## Repository Structure
